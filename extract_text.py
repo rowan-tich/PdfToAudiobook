@@ -1,5 +1,6 @@
 import fitz
 import json
+import sys
 
 PDF_PATH = "book.pdf"
 OUTPUT_JSON = "vision_output.json"
@@ -79,6 +80,7 @@ def extract_from_pdf(pdf_path):
     return results
 
 if __name__ == "__main__":
+    PDF_PATH = sys.argv[1] if len(sys.argv) > 1 else "book.pdf"
     data = extract_from_pdf(PDF_PATH)
 
     with open(OUTPUT_JSON, "w", encoding="utf-8") as f:
